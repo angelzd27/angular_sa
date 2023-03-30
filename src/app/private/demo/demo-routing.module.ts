@@ -6,13 +6,16 @@ import { UpdateComponent } from './update/update.component';
 
 const routes: Routes = [
   {
-    path: "", component: DemoComponent
+    path: "", 
+    component: DemoComponent
   },
   {
-    path: "create", component :  CreateComponent
+    path: "create", 
+    component :  CreateComponent
   },
   {
-    path: "update", component :  UpdateComponent
+    path: "update", 
+    component :  UpdateComponent
   }
 ];
 
