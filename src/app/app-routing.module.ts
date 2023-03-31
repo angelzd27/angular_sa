@@ -16,6 +16,10 @@ const routes: Routes = [
     loadChildren: () => import("./public/not-found/not-found.module").then((m) => m.NotFoundModule)
   },
   {
+    path: "login",
+    loadChildren: () => import("./public/auth/login/login.module").then((m) => m.LoginModule)
+  },
+  {
     path: "**",
     redirectTo: "not-found",
     pathMatch: "prefix"
