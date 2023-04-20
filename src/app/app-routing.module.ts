@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './components/guards/guards.guard'
 
 const routes: Routes = [
   {
     path: "",
-    redirectTo: "demo",
+    redirectTo: "login",
     pathMatch:'prefix',
   },
   {
@@ -23,7 +24,13 @@ const routes: Routes = [
     path: "**",
     redirectTo: "not-found",
     pathMatch: "prefix"
-  }
+  },
+  {
+    path: "",
+    loadChildren: () => import("./private/private.module").then((m) => m.PrivateModule),
+    canActivate: [AuthGuard]
+  },
+
 ];
 
 @NgModule({
