@@ -10,10 +10,13 @@ export class AuthGuard implements CanActivate {
   ) { }
 
   canActivate( route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
-    if (this.access)
+    if (localStorage.getItem('token') === 'true'){
+      console.log('Con access')
       return true
+    }
 
-    this.router.navigate(['login'], {
+    console.log('redireccionando')
+    this.router.navigate(['/login'], {
       queryParams:{
         return: state.url
       }

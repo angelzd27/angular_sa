@@ -8,7 +8,12 @@ const routes: Routes = [
     component: PrivateComponent,
     children: [
       {
-        path: '',
+        path:'',
+        redirectTo:'demo',
+        pathMatch:'prefix',
+      },
+      {
+        path: 'demo',
         loadChildren: () => import("./demo/demo.module").then((m) => m.DemoModule)
       }
     ]

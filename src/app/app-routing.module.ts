@@ -5,12 +5,8 @@ import { AuthGuard } from './components/guards/guards.guard'
 const routes: Routes = [
   {
     path: "",
-    redirectTo: "login",
-    pathMatch:'prefix',
-  },
-  {
-    path: "demo",
-    loadChildren: () => import("./private/demo/demo.module").then((m) => m.DemoModule)
+    loadChildren:() => import("./private/private.module").then((m) => m.PrivateModule),
+    canActivate: [AuthGuard],
   },
   {
     path: "not-found",
@@ -24,11 +20,6 @@ const routes: Routes = [
     path: "**",
     redirectTo: "not-found",
     pathMatch: "prefix"
-  },
-  {
-    path: "",
-    loadChildren: () => import("./private/private.module").then((m) => m.PrivateModule),
-    canActivate: [AuthGuard]
   },
 
 ];
